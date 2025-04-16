@@ -93,14 +93,22 @@
 
             <div class="form-group">
                 <label for="name">Nome do bolo:</label>
-                <input type="text" id="name" name="name" placeholder="Ex: Bolo de Chocolate" required>
+                <input type="text" id="name" name="name" placeholder="Ex: Bolo de Chocolate" required value="{{ old('name') }}">
+                @error('name')
+                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                @enderror
             </div>
-
             <div class="form-group">
                 <label for="price">Preço do bolo:</label>
-                <input type="text" id="price" name="price" placeholder="Ex: 12.99" required>
+                <input type="text" id="price" name="price" placeholder="Ex: 12.99" required value="{{ old('price') }}">
+                @error('price')
+                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                @enderror
             </div>
-
+            <x-alert type="success" />
+            <x-alert type="error" />
+            <x-alert type="warning" />
+            <x-alert type="info" />            
             <button type="submit" class="btn-submit">Cadastrar</button>
         </div>
     </form>
