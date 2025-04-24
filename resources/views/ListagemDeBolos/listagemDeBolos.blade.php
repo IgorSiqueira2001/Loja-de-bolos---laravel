@@ -67,7 +67,7 @@
                 @method('DELETE')
                 <p><strong>Bolo:</strong> {{ $c->name }}</p>
                 <p><strong>Preço:</strong> R$ {{ number_format($c->price, 2, ',', '.') }}</p>
-                <a href="{{ route('cakes.destroy', $c->id) }}"><button type="submit">Deletar</button></a>
+                <a href="{{ route('cakes.destroy', $c->id) }}"><button type="submit" class="btn btn-danger">Deletar</button></a>
                 <a href="{{ route('cakes.update', $c->id) }}" class="btn btn-warning">Editar</a>
             </form>
         </div>
