@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreUserRequest as RequestsStoreUserRequest;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Cake;
@@ -15,6 +14,10 @@ class CadastroCakes extends Controller
     public function show(): View
     {
         return view('CadastroDeBolo.CadastroDeBolo'); //['produtos' => $produtos]//);
+    }
+
+    public function findCakes($id){
+        $cake = Cake::findOrFail($id);
     }
 
     public function createCakes(StoreUserRequest $request){

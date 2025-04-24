@@ -84,23 +84,26 @@
     </style>
 </head>
 <body>
-    <form action="/cadastroBolo" method="POST">
+    <form action="{{ isset($cake) ? route('cakes.update', $cake->id) : route('cake.create') }}" method="POST">
         @csrf
         @include('welcome')
-        
+        @if(isset($cake))
+            @method("PUT");
+            
+        @endif
         <div class="card-cadastro">
             <h2>Cadastro de Bolo 🎂</h2>
 
             <div class="form-group">
                 <label for="name">Nome do bolo:</label>
-                <input type="text" id="name" name="name" placeholder="Ex: Bolo de Chocolate" required value="{{ old('name') }}">
+                <input type="text" id="name" name="name" placeholder="Ex: Bolo de Chocolate" required value="{{ old('name', $cake->name ?? '') }}">
                 @error('name')
                     <div class="text-red-500 text-sm">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="price">Preço do bolo:</label>
-                <input type="text" id="price" name="price" placeholder="Ex: 12.99" required value="{{ old('price') }}">
+                <input type="text" id="price" name="price" placeholder="Ex: 12.99" required value="{{ old('price', $cake->price ?? '') }}">
                 @error('price')
                     <div class="text-red-500 text-sm">{{ $message }}</div>
                 @enderror

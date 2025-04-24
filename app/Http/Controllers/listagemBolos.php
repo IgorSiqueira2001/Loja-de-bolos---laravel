@@ -25,4 +25,5 @@ class listagemBolos extends Controller
     
         return redirect()->back()->with('error', 'Bolo não encontrado!');
     }
+
 }

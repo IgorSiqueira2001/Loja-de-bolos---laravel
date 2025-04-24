@@ -15,8 +15,8 @@
   <header>
     <h2 class="logo">Cake Store</h2>
     <nav class="navigation">
-        <a href="cadastroBolo">Cadastro de Bolo</a>
-        <a href="listagemDeBolos">Cardápio</a>
+        <a href="{{ route('cake.create') }}">Cadastro de Bolo</a>
+        <a href="{{ route('cakes.list') }}">Cardápio</a>
         <a href="#">Venda</a>
         <button class="btnLogin-popup">Login</button>
     </nav>
